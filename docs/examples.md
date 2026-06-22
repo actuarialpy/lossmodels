@@ -57,15 +57,6 @@ Apply a deductible plus payment limit to create a layer.
 Relevant script:
 - `examples/layer_example.py`
 
-## Credibility
-
-### Bühlmann and Bühlmann–Straub
-
-Fit and use credibility models.
-
-Relevant script:
-- `examples/credibility_example.py`
-
 ## Risk Measures
 
 ### Stop-Loss

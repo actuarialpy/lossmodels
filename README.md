@@ -9,7 +9,7 @@ A Python library for actuarial loss modeling using frequency–severity methods.
 
 ## Overview
 
-`lossmodels` is a Python library for frequency-severity modeling, aggregate loss analysis, actuarial coverage modifications, credibility, and model fitting. It is designed for actuarial students, analysts, insurance data scientists, and quantitative developers who want a lightweight, readable implementation of core loss modeling techniques.
+`lossmodels` is a Python library for frequency-severity modeling, aggregate loss analysis, actuarial coverage modifications, and model fitting. It is designed for actuarial students, analysts, insurance data scientists, and quantitative developers who want a lightweight, readable implementation of core loss modeling techniques.
 
 ## Highlights
 
@@ -35,9 +35,6 @@ A Python library for actuarial loss modeling using frequency–severity methods.
   - Method of moments
   - AIC / BIC diagnostics
   - Best-fit selection for supported severity and frequency models
-- Credibility models:
-  - Bühlmann
-  - Bühlmann–Straub
 
 ## Installation
 
@@ -55,7 +52,7 @@ pip install -e .
 
 Current package metadata:
 
-- Version: `0.1.4`
+- Version: `0.2.0`
 - Python: `>=3.10`
 - Core dependencies: `numpy`, `scipy`
 
@@ -65,7 +62,6 @@ Current package metadata:
 lossmodels/
 ├── aggregate/     # aggregate loss models, discretization, Panjer, FFT, risk metrics
 ├── coverage/      # deductibles, limits, and layers
-├── credibility/   # Bühlmann and Bühlmann–Straub credibility
 ├── empirical/     # empirical frequency and severity distributions
 ├── estimation/    # MLE, method of moments, diagnostics, model selection
 ├── frequency/     # discrete claim count models
@@ -162,11 +158,6 @@ print(model.mean())
 - `PolicyLimit`
 - `Layer`
 
-### Credibility
-
-- `Buhlmann`
-- `BuhlmannStraub`
-
 ## Aggregate Loss Methods
 
 The `aggregate` module supports multiple ways to analyze total loss.
@@ -223,7 +214,6 @@ Current automated model selection support includes:
 
 The repository currently includes the following example scripts:
 
-- `credibility_example.py`
 - `deductible_example.py`
 - `fit_and_compare_models.py`
 - `fit_and_simulate.py`

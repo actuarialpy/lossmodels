@@ -11,7 +11,6 @@ This documentation covers:
 - Coverage modifications
 - Aggregate modeling
 - Estimation and model selection
-- Credibility theory
 - Empirical distributions
 - Risk measures
 - Worked examples
@@ -23,6 +22,5 @@ This documentation covers:
 - [Coverage](coverage.md)
 - [Aggregate](aggregate.md)
 - [Estimation](estimation.md)
-- [Credibility](credibility.md)
 - [Empirical](empirical.md)
 - [Examples](examples.md)
