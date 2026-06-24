@@ -6,6 +6,32 @@ from .pareto import Pareto
 from .spliced import SplicedSeverity
 from .weibull import Weibull
 
+# FAM / ASTAM inventory (Loss Models Appendix A), added in 0.5.0
+from .transformed_beta import (
+    Burr,
+    InverseBurr,
+    GeneralizedPareto,
+    ParetoII,
+    InversePareto,
+    Loglogistic,
+    Paralogistic,
+    InverseParalogistic,
+)
+from .transformed_gamma import (
+    InverseGamma,
+    InverseWeibull,
+    InverseExponential,
+)
+from .other_severity import (
+    InverseGaussian,
+    LogT,
+    SingleParameterPareto,
+)
+from .finite_support import (
+    Beta,
+    GeneralizedBeta,
+)
+
 __all__ = [
     "SeverityModel",
     "Exponential",
@@ -14,4 +40,24 @@ __all__ = [
     "Pareto",
     "SplicedSeverity",
     "Weibull",
+    # transformed beta family
+    "Burr",
+    "InverseBurr",
+    "GeneralizedPareto",
+    "ParetoII",
+    "InversePareto",
+    "Loglogistic",
+    "Paralogistic",
+    "InverseParalogistic",
+    # transformed gamma family
+    "InverseGamma",
+    "InverseWeibull",
+    "InverseExponential",
+    # other
+    "InverseGaussian",
+    "LogT",
+    "SingleParameterPareto",
+    # finite support
+    "Beta",
+    "GeneralizedBeta",
 ]

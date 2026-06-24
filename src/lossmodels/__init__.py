@@ -6,7 +6,7 @@ available directly as ``lossmodels.Lognormal``, ``lossmodels.fit_best_severity``
 (``from lossmodels.severity import Lognormal``) continue to work unchanged.
 """
 
-__version__ = "0.4.0"
+__version__ = "0.5.0"
 
 from .severity import (
     SeverityModel,
@@ -16,6 +16,23 @@ from .severity import (
     Pareto,
     SplicedSeverity,
     Weibull,
+    # FAM / ASTAM continuous inventory (0.5.0)
+    Burr,
+    InverseBurr,
+    GeneralizedPareto,
+    ParetoII,
+    InversePareto,
+    Loglogistic,
+    Paralogistic,
+    InverseParalogistic,
+    InverseGamma,
+    InverseWeibull,
+    InverseExponential,
+    InverseGaussian,
+    LogT,
+    SingleParameterPareto,
+    Beta,
+    GeneralizedBeta,
 )
 from .frequency import (
     FrequencyModel,
@@ -23,6 +40,10 @@ from .frequency import (
     Geometric,
     NegativeBinomial,
     Poisson,
+    # (a, b, 1) class (0.5.0)
+    ZeroTruncated,
+    ZeroModified,
+    Logarithmic,
 )
 from .aggregate import CollectiveRiskModel
 from .empirical import EmpiricalSeverity, EmpiricalFrequency
@@ -51,7 +72,13 @@ __all__ = [
     "__version__",
     "SeverityModel", "Exponential", "Gamma", "Lognormal", "Pareto",
     "SplicedSeverity", "Weibull",
+    "Burr", "InverseBurr", "GeneralizedPareto", "ParetoII", "InversePareto",
+    "Loglogistic", "Paralogistic", "InverseParalogistic",
+    "InverseGamma", "InverseWeibull", "InverseExponential",
+    "InverseGaussian", "LogT", "SingleParameterPareto",
+    "Beta", "GeneralizedBeta",
     "FrequencyModel", "Binomial", "Geometric", "NegativeBinomial", "Poisson",
+    "ZeroTruncated", "ZeroModified", "Logarithmic",
     "CollectiveRiskModel", "EmpiricalSeverity", "EmpiricalFrequency",
     "fit_exponential", "fit_gamma", "fit_lognormal", "fit_pareto", "fit_poisson",
     "fit_weibull", "fit_negbinomial", "fit_mle",

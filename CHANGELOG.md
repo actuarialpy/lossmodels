@@ -1,5 +1,44 @@
 # Changelog
 
+## 0.5.0
+
+### Added
+- **FAM / ASTAM continuous severity inventory** (Loss Models Appendix A), with the
+  exact Klugman exam parameterizations and analytic moments that raise outside
+  their existence ranges:
+  - Transformed beta family: `Burr`, `InverseBurr`, `GeneralizedPareto`,
+    `ParetoII`, `InversePareto`, `Loglogistic`, `Paralogistic`,
+    `InverseParalogistic`.
+  - Transformed gamma family: `InverseGamma`, `InverseWeibull`,
+    `InverseExponential`.
+  - Other: `InverseGaussian`, `LogT` (no positive moments), `SingleParameterPareto`.
+  - Finite support on `(0, theta)`: `Beta`, `GeneralizedBeta`.
+  Each exposes the full severity interface (`pdf`, `cdf`, `quantile`/`ppf`,
+  `sample`, `mean`, `variance`, plus the inherited `limited_expected_value` /
+  `excess_loss`), so all of them drop straight into `risksim` and `extremeloss`
+  via the `.sample()` / `.mean()` contract.
+- **The (a, b, 1) frequency class** (Loss Models Appendix B.3):
+  - `ZeroTruncated(base)` — a generic wrapper that removes the mass at zero of any
+    `(a, b, 0)` model (`Poisson`, `Geometric`, `Binomial`, `NegativeBinomial`) and
+    renormalizes.
+  - `ZeroModified(base, p0_modified)` — places an arbitrary probability at zero.
+  - `Logarithmic(beta)` — the one zero-truncated member with no `(a, b, 0)` parent,
+    implemented directly (numerically stable pmf; `numpy.random.logseries` sampling).
+
+### Notes
+- `ParetoII` is the FAM/ASTAM two-parameter "Pareto" (Type II / Lomax, support
+  `x > 0`). The pre-existing `Pareto` is the Pareto Type I (support `x >= theta`),
+  which the FAM tables list as "Single-Parameter Pareto"; it is now also available
+  under that name as `SingleParameterPareto`. `Pareto` is unchanged and the splice
+  contract that depends on it (`cdf(theta) = 0`) is preserved.
+- `GeneralizedPareto` here is the Klugman three-parameter transformed-beta
+  distribution, **not** the extreme-value GPD. The EVT distributions (GEV, Gumbel,
+  Frechet, GPD, Hill) live in `extremeloss` and are not duplicated here.
+- The `(a, b, 1)` wrappers respect the library's existing probability
+  parameterization of the base distributions; only `Logarithmic` is parameterized
+  by `beta` (it has no `(a, b, 0)` parent). For a beta-parameterized geometric /
+  negative binomial, use `p = 1 / (1 + beta)`.
+
 ## 0.4.0
 
 ### Added
