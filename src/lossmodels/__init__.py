@@ -6,7 +6,14 @@ available directly as ``lossmodels.Lognormal``, ``lossmodels.fit_best_severity``
 (``from lossmodels.severity import Lognormal``) continue to work unchanged.
 """
 
-__version__ = "0.5.0"
+from importlib.metadata import PackageNotFoundError as _PackageNotFoundError, version as _version
+
+try:
+    __version__ = _version("lossmodels")
+except _PackageNotFoundError:  # running from a source tree without an installed distribution
+    __version__ = "0.0.0"
+
+del _PackageNotFoundError, _version
 
 from .severity import (
     SeverityModel,

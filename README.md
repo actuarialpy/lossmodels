@@ -1,8 +1,5 @@
 # lossmodels
 
-[![Python](https://img.shields.io/badge/python-3.10%2B-blue)]()
-[![License](https://img.shields.io/badge/license-MIT-green)]()
-
 A Python library for actuarial loss modeling using frequency–severity methods.
 
 ---
@@ -191,8 +188,8 @@ A few naming points matter:
   `SingleParameterPareto`.
 - **`GeneralizedPareto` here is the three-parameter transformed-beta
   distribution**, not the extreme-value GPD used in peaks-over-threshold tail
-  fitting. The extreme-value distributions (GEV, Gumbel, Fréchet, GPD, Hill) live
-  in the companion `extremeloss` package.
+  fitting. Extreme-value distributions (GEV, Gumbel, Fréchet, GPD, Hill) are out
+  of scope for this severity catalog.
 - `Exponential` is parameterized by `rate` (= `1/theta`) and `Weibull` by shape
   `k` and scale `lam`; the transformed-beta and transformed-gamma families follow
   the scale-parameter (`theta`) convention.
@@ -386,20 +383,6 @@ print(best_freq["best_name"])
 - **Diagnostics and goodness of fit:** `log_likelihood`, `aic`, `bic`,
   `ks_statistic`, `anderson_darling`, `cramer_von_mises`, `tail_quantile_table`,
   and `goodness_of_fit`.
-
-## The OpenActuarial ecosystem
-
-**`lossmodels`** is the distribution-and-aggregation core of a small set of
-interoperating actuarial packages. Models built here plug into the others through
-their `.sample(size)` and `.mean()` interface:
-
-- **`risksim`** — portfolio simulation and aggregate reinsurance program
-  evaluation (layers, contract programs), consuming `lossmodels` severities and
-  frequencies.
-- **`extremeloss`** — extreme value theory: peaks-over-threshold / GPD tails,
-  block maxima / GEV, the Hill estimator, and threshold diagnostics. This is the
-  home of the extreme-value distributions, which is why they are not duplicated in
-  `lossmodels`.
 
 ## Examples
 
